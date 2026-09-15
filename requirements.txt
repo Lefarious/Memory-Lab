@@ -1,0 +1,11 @@
+# Steps 0-1 (required)
+numpy>=1.26
+scikit-learn>=1.4
+anthropic>=0.40
+
+# Step 1 upgrade -- real semantic embeddings instead of TF-IDF.
+# ~90MB one-time model download. Install this as soon as you can.
+sentence-transformers>=3.0
+
+# Optional: hosted embeddings instead of local.
+# voyageai>=0.3
