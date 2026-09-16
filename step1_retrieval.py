@@ -18,6 +18,14 @@ import numpy as np
 from embedder import BaseEmbedder, get_embedder
 from memories import MEMORIES, PROBE_QUESTIONS, Memory
 
+import argparse
+
+ap = argparse.ArgumentParser()
+ap.add_argument("--embedder", default="auto",
+                choices=["auto", "tfidf", "local", "voyage"])
+args = ap.parse_args()
+
+embedder = get_embedder(args.embedder)
 
 def cosine_similarity(query_vec: np.ndarray, matrix: np.ndarray) -> np.ndarray:
     """
