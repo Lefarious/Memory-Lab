@@ -20,12 +20,6 @@ from memories import MEMORIES, PROBE_QUESTIONS, Memory
 
 import argparse
 
-ap = argparse.ArgumentParser()
-ap.add_argument("--embedder", default="auto",
-                choices=["auto", "tfidf", "local", "voyage"])
-args = ap.parse_args()
-
-embedder = get_embedder(args.embedder)
 
 def cosine_similarity(query_vec: np.ndarray, matrix: np.ndarray) -> np.ndarray:
     """
@@ -74,7 +68,12 @@ class MemoryStore:
 
 
 def main() -> None:
-    embedder = get_embedder()
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--embedder", default="auto",
+                    choices=["auto", "tfidf", "local", "voyage"])
+    args = ap.parse_args()
+
+    embedder = get_embedder(args.embedder)
     store = MemoryStore(embedder)
     store.add_all(MEMORIES)
 
