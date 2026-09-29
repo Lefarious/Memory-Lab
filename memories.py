@@ -60,6 +60,7 @@ MEMORIES = [
     _m(28, 2026, 3, 20, "LongMemEval-V2 scales histories up to 115 million tokens."),
     _m(29, 2026, 3, 22, "Joel wants the build and the reading to happen in parallel, not one then the other."),
     _m(30, 2026, 3, 25, "The fastest retrieval methods score around 42-58% on LongMemEval-V2."),
+    _m(31, 2026, 3, 27, "AgentRunbook-C is the most accurate method tested on LongMemEval-V2."),
 ]
 
 
@@ -80,6 +81,6 @@ PROBE_QUESTIONS = [
     ("What code editor does Joel use?",              21, "architectural / staleness"),
     ("How does Joel take his coffee?",                7, "architectural / duplication"),
     ("When is the thesis due?",                       9, "control (should pass)"),
-    ("How slow is the most accurate memory method?", 20, "lexical"),
+    ("How slow is the most accurate memory method?", 20, "multi-hop"),
     ("Where does Joel live?",                        14, "lexical"),
 ]
