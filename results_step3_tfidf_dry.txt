@@ -1,0 +1,81 @@
+model    : (dry run)
+k        : 3
+==============================================================================
+
+[turn  1 | store= 0] S: Quick context: my FYP is about memory systems for long-running LLM agents.
+
+[turn  2 | store= 1] S: I write all my code in VS Code.
+
+[turn  3 | store= 2] S: I study in the university library most days.
+
+[turn  4 | store= 3] S: My Step 1 baseline used TF-IDF embeddings.
+
+[turn  5 | store= 4] Q: Which editor do I use?
+     1. 0.000 [   other] t1: Quick context: my FYP is about memory systems for long-running LLM agents.
+     2. 0.000 [ CURRENT] t2: I write all my code in VS Code.
+     3. 0.000 [   other] t3: I study in the university library most days.
+
+[turn  6 | store= 5] S: I've been drinking a lot of coffee during long coding sessions.
+
+[turn  7 | store= 6] S: I switched from VS Code to Neovim this week.
+
+[turn  8 | store= 7] S: Honestly VS Code still has the better debugger though.
+
+[turn  9 | store= 8] S: I moved my study spot from the library to home because of the commute.
+
+[turn 10 | store= 9] S: I switched my embedder from TF-IDF to sentence-transformers.
+
+[turn 11 | store=10] Q: Which editor do I use now?
+     1. 1.000 [   stale] t5: Which editor do I use?
+     2. 0.000 [   other] t1: Quick context: my FYP is about memory systems for long-running LLM agents.
+     3. 0.000 [   other] t3: I study in the university library most days.
+
+[turn 12 | store=11] S: I've cut out coffee and drink tea now.
+
+[turn 13 | store=12] S: The library wifi was always slow anyway.
+
+[turn 14 | store=13] S: Still on Neovim, the keybindings are growing on me.
+
+[turn 15 | store=14] Q: Where do I study?
+     1. 0.344 [   stale] t3: I study in the university library most days.
+     2. 0.269 [ CURRENT] t9: I moved my study spot from the library to home because of the commute.
+     3. 0.000 [   other] t2: I write all my code in VS Code.
+
+[turn 16 | store=15] Q: Which embedder am I using?
+     1. 0.316 [ CURRENT] t10: I switched my embedder from TF-IDF to sentence-transformers.
+     2. 0.000 [   other] t1: Quick context: my FYP is about memory systems for long-running LLM agents.
+     3. 0.000 [   other] t3: I study in the university library most days.
+
+[turn 17 | store=16] Q: What do I drink while coding?
+     1. 0.242 [ CURRENT] t12: I've cut out coffee and drink tea now.
+     2. 0.202 [   stale] t6: I've been drinking a lot of coffee during long coding sessions.
+     3. 0.000 [   other] t3: I study in the university library most days.
+
+[turn 18 | store=17] Q: Which editor do I use?
+     1. 1.000 [   stale] t5: Which editor do I use?
+     2. 1.000 [   stale] t11: Which editor do I use now?
+     3. 0.000 [   other] t3: I study in the university library most days.
+
+[turn 19 | store=18] Q: What is my FYP about?
+     1. 0.244 [ CURRENT] t1: Quick context: my FYP is about memory systems for long-running LLM agents.
+     2. 0.000 [   other] t2: I write all my code in VS Code.
+     3. 0.000 [   other] t3: I study in the university library most days.
+
+==============================================================================
+embedder : tfidf
+final store: 19 memories -- 4 superseded facts, 7 stored questions, 1 restatement (t14)
+
+turn store  rank  crowded   answer
+   5     4     2     0/3         -
+  11    10     7     1/3         -
+  15    14     2     1/3         -
+  16    15     1     0/3         -
+  17    16     1     1/3         -
+  18    17     7     2/3         -
+  19    18     1     0/3         -
+
+current fact ranked #1 : 3/7
+current fact in top-3  : 5/7
+
+'crowded' = retrieval slots spent on stale facts, decoys or stored questions.
+Compare turn 5 with turn 18: same question, bigger store.
